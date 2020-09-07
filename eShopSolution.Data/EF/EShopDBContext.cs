@@ -16,5 +16,9 @@ namespace eShopSolution.Data.EF
         }
         public DbSet<Product> Products;
         public DbSet<Category> Categories;
+        public DbSet<Cart> Carts;
+        public DbSet<Order> Orders;
+        public DbSet<OrderDetail> OrderDetails;
+        public DbSet<Transaction> Transactions;
     }
 }
