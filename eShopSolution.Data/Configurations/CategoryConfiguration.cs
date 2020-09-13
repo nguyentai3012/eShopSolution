@@ -16,7 +16,6 @@ namespace eShopSolution.Data.Configurations
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Status).IsRequired().HasDefaultValue(Status.Active);
             builder.Property(x => x.IsShowOnHome).IsRequired();
-            builder.Property(x => x.ProductInCategories).IsRequired();
             builder.Property(x => x.SortOrder).IsRequired();
         }
     }
