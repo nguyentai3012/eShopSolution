@@ -18,8 +18,6 @@ namespace eShopSolution.Data.Configurations
                 .IsRequired();
             builder.Property(x => x.OriginalPrice)
                 .IsRequired();
-            builder.Property(x => x.SeoAlias)
-                .IsRequired();
             builder.Property(x => x.Stock)
                 .IsRequired()
                 .HasDefaultValue(0);

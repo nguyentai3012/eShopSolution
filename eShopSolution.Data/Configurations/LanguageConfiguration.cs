@@ -13,7 +13,7 @@ namespace eShopSolution.Data.Configurations
         {
             builder.ToTable("Language");
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).IsRequired().UseIdentityColumn();
+            builder.Property(x => x.Id).IsRequired().IsUnicode(false).HasMaxLength(5);
             builder.Property(x => x.Name).IsRequired().HasMaxLength(20);   
         }
     }
