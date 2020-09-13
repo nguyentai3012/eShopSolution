@@ -1,14 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace eShopSolution.Data.Entity
+namespace eShopSolution.Data.Entities
 {
     public class OrderDetail
     {
-        public int OrderID { get; set; }
-        public int ProductID { get; set; }
-        public int Quantity { get; set; }
-        public decimal Price { get; set; }
+
+        [Key]
+        public int OrderId { set; get; }
+        public int ProductId { set; get; }
+        public int Quantity { set; get; }
+        public decimal Price { set; get; }
+
+        public Order Order { get; set; }
+
+        public Product Product { get; set; }
+
     }
 }
