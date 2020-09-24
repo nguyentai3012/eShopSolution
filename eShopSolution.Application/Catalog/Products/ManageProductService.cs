@@ -1,9 +1,13 @@
-﻿using eShopSolution.Application.Catalog.Products.DTO;
+﻿using eShopSolution.Application.Catalog.DTOs;
+using eShopSolution.Application.Catalog.Products.DTO;
 using eShopSolution.Application.Catalog.Products.DTOs;
 using eShopSolution.Data.EF;
+using eShopSolution.Data.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace eShopSolution.Application.Catalog.Products
 {
@@ -14,27 +18,36 @@ namespace eShopSolution.Application.Catalog.Products
         {
             _context = context;
         }
-        int IManageProductService.Create(ProductCreateRequest request)
+        /// <summary>
+        /// create product 
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public async Task<int> Create(ProductCreateRequest request)
+        {
+            var product = new Product() {
+                Price = request.Price,
+            };
+            _context.Products.Add(product);
+            return await _context.SaveChangesAsync();
+        }
+
+        public Task<int> Delete(int ProductId)
         {
             throw new NotImplementedException();
         }
 
-        int IManageProductService.Delete(int ProductId)
+        public Task<List<ProductViewModel>> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        List<ProductViewModel> IManageProductService.GetAll()
+        public Task<PagedViewModel<ProductViewModel>> GetAllPaging(string keyword, int pageIndex, int pageSize)
         {
             throw new NotImplementedException();
         }
 
-        List<ProductViewModel> IManageProductService.GetAllPaging(string keyword, int pageIndex, int pageSize)
-        {
-            throw new NotImplementedException();
-        }
-
-        int IManageProductService.Update(ProductCreateRequest request)
+        public Task<int> Update(ProductCreateRequest request)
         {
             throw new NotImplementedException();
         }
